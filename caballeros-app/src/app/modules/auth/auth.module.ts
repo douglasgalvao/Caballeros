@@ -8,6 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContatoComponent } from './pages/contato/contato.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
+import { AgendarComponent } from './pages/agendar/agendar.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ContatoComponent } from './pages/contato/contato.component';
     LoginComponent,
     NavbarComponent,
     LoginFormComponent,
-    ContatoComponent
+    ContatoComponent,
+    SobreComponent,
+    AgendarComponent
   ],
   imports: [
     CommonModule,

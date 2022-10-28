@@ -1,6 +1,6 @@
 <nav>
   <div class="logoPhoto">
-    <img routerLink="/login" src="../../../assets/logo3.png" alt="logoCaballeros">
+    <img routerLink="/auth/login" src="../../../assets/logo3.png" alt="logoCaballeros">
   </div>
   <div *ngIf="optionsClicked==false">
     <button class="iconOptions" (click)="setTrueClick()">
@@ -9,18 +9,16 @@
   </div>
 </nav>
 
-
-
 <div class="optionsOpen" *ngIf="optionsClicked==true">
 
   <button class="fecharOptions" (click)="setfalseClick()">
     <i class="fa-solid fa-square-xmark"></i>
   </button>
   <ul class="options">
-    <a routerLink="/login">Login</a>
-    <a routerLink="/sobre">Sobre</a>
-    <a routerLink="/agendar">Agendar</a>
-    <a routerLink="/contato">Contato</a>
+    <a routerLink="/auth/login">Login</a>
+    <a routerLink="/auth/sobre">Sobre</a>
+    <a routerLink="/auth/agendar">Agendar</a>
+    <a routerLink="/auth/contato">Contato</a>
   </ul>
 
 </div>
