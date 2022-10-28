@@ -16,12 +16,10 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
   }
-
   private initForm(): void {
     this.formLogin = this.formBuilder.group({
       login: ["", [Validators.required]],
       password: ["", [Validators.required]]
     })
   }
-
 }

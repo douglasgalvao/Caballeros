@@ -6,7 +6,7 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(../../../assets/img2.jpeg);
+  background-image: url(../../../../../assets/img2.jpeg);
   .password,
   .login {
     display: flex;
@@ -42,6 +42,7 @@ form {
         padding: 6px 35px;
         margin: 28px 0px;
         border-radius: 4px;
+        width: 100%;
         color:#fff;
         background-color: #a5632adb;
         border: 0.1em solid transparent;
