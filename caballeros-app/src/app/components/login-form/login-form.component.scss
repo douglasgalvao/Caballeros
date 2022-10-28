@@ -14,22 +14,25 @@ form {
   }
   label {
     font-size: large;
+    color:#fff;
     font-weight: 700;
   }
   input {
     padding: 5px;
     border-radius: 4px;
+    color:#fff;
     font-size: large;
+    background-color: rgba(255, 255, 255, 0.426);
     border: 0.1em solid transparent;
     &:hover {
-      border-color: orangered;
-      background-color: #fff;
+      border-color: #a5632adb;
+      background-color: #202024;
       transition: 0.3s ease-in;
     }
 
   }
   .contentLogin {
-    background-color: rgba(255, 255, 255, 0.73);
+    background-color: #3d3d40b1;
     padding: 25px 45px;
     border-radius: 5px;
     .btnLogin {
@@ -39,12 +42,13 @@ form {
         padding: 6px 35px;
         margin: 28px 0px;
         border-radius: 4px;
-        background-color: orangered;
+        background-color: #a5632adb;
         border: 0.1em solid transparent;
         &:hover {
-          background-color: #fff;
-          border-color: orangered;
+          background-color: #202024;
+          border-color: #a5632adb;
           transition: 0.3s ease-in;
+          color:#fff;
         }
       }
     }
