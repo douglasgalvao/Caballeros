@@ -12,13 +12,14 @@
 <div class="optionsOpen" *ngIf="optionsClicked==true">
 
   <button class="fecharOptions" (click)="setfalseClick()">
-    <i class="fa-solid fa-square-xmark"></i>
+    <i class="fa-solid fa-x"></i>
   </button>
   <ul class="options">
     <a routerLink="/auth/login">Login</a>
     <a routerLink="/auth/sobre">Sobre</a>
     <a routerLink="/auth/agendar">Agendar</a>
     <a routerLink="/auth/contato">Contato</a>
+    <img routerLink="/auth/login" src="../../../assets/logo3.png" alt="logoCaballeros">
   </ul>
 
 </div>
