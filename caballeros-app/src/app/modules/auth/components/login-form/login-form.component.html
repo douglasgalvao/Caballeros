@@ -1,16 +1,16 @@
-<form [formGroup]="formLogin">
-  <div class="contentLogin">
-    <div class="login">
-      <label for="login">Login:</label>
-      <input type="text" id="login" formControlName="login">
+<form [formGroup]="formEmail" (submit)="onSubmitlogin()">
+  <div class="contentEmail">
+    <div class="email">
+      <label for="email">Email:</label>
+      <input type="text" id="email" formControlName="email">
     </div>
     <div class="password">
       <label for="password">Password:</label>
       <input type="password" id="password" formControlName="password">
     </div>
 
-    <div class="btnLogin">
-      <button>Entrar</button>
+    <div class="btnEmail">
+      <button type="submit">Entrar</button>
     </div>
 
     <p>Ainda não é um Caballeros? <a routerLink="/register">registre-se!</a></p>

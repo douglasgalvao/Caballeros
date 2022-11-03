@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login-form',
@@ -8,17 +10,27 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
 
-  public formLogin!: FormGroup
+  public formEmail!: FormGroup
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private httpClient: HttpClient
   ) { }
 
   ngOnInit(): void {
     this.initForm();
   }
+
+  onSubmitlogin() {
+    console.log(this.httpClient.post(environment.apiUrl.concat("/login"), this.formEmail.value)
+      .subscribe(res => {
+        console.log(res);
+      }));
+  }
+
+
   private initForm(): void {
-    this.formLogin = this.formBuilder.group({
-      login: ["", [Validators.required]],
+    this.formEmail = this.formBuilder.group({
+      email: ["", [Validators.required]],
       password: ["", [Validators.required]]
     })
   }
