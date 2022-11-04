@@ -52,6 +52,13 @@ form {
       }
     }
 
+    .emailInUse{
+      span{
+        font-size: small;
+        color:red;
+      }
+    }
+
     button {
       margin: 10px;
       padding: 8px 40px;

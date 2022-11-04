@@ -2,9 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-import { LocalStorageService } from 'angular-web-storage';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -17,22 +15,26 @@ export class RegisterFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private httpClient: HttpClient,
-    private router: Router,
-    private storage: LocalStorageService
+    private router: Router
   ) { }
 
   onSubmit(): void {
     this.registred = true;
-    this.httpClient.get(environment.apiUrl.concat("/cliente/exist" + this.formRegister.value)).subscribe(retorno => {
-      if (retorno) {
-        this.emailInUse;
-        return;
-      }
-      this.httpClient.post(environment.apiUrl.concat("/cliente/save"), this.formRegister.value).subscribe((retorno:any) => {
-        this.storage.set("token",retorno.token,30*60);
-        this.router.navigate(["/auth/login"]);
-      })
-    });
+    try {
+
+      this.httpClient.get(environment.apiUrl.concat("/cliente/exist/" + this.formRegister.value.email)).subscribe(retorno => {
+
+        if (retorno) {
+          this.emailInUse = true;
+          return;
+        }
+        this.httpClient.post(environment.apiUrl.concat("/cliente/save"), this.formRegister.value).subscribe((retorno: any) => {
+          this.router.navigate(["/auth/login"]);
+        })
+      });
+    } catch (e: any) {
+      throw e.toString();
+    }
   }
 
   ngOnInit(): void {

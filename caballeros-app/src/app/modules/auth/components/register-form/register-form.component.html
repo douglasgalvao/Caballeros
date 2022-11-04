@@ -30,7 +30,7 @@
           <span class="inputError" *ngIf="c['email'].errors?.['email']">Você deve preencher um email válido</span>
           <span class="inputError" *ngIf="c['email'].errors?.['required']">Este campo é obrigatório</span>
         </div>
-        <div *ngIf="emailInUse">
+        <div class="emailInUse" *ngIf="emailInUse">
           <span>Este email está em uso</span>
         </div>
       </div>
