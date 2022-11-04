@@ -8,10 +8,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ContatoComponent } from './pages/contato/contato.component';
-import { SobreComponent } from './pages/sobre/sobre.component';
-import { AgendarComponent } from './pages/agendar/agendar.component';
-
+import { RegisterComponent } from './pages/register/register.component';
+import { AngularWebStorageModule } from 'angular-web-storage';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { NgxMaskModule } from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -19,16 +19,17 @@ import { AgendarComponent } from './pages/agendar/agendar.component';
     LoginComponent,
     NavbarComponent,
     LoginFormComponent,
-    ContatoComponent,
-    SobreComponent,
-    AgendarComponent
+    RegisterComponent,
+    RegisterFormComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot(),
+    AngularWebStorageModule
   ]
 })
 export class AuthModule { }

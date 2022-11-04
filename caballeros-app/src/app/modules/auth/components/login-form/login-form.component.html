@@ -10,10 +10,10 @@
     </div>
 
     <div class="btnEmail">
-      <button type="submit">Entrar</button>
+      <button type="submit" [disabled]="formEmail.invalid">Entrar</button>
     </div>
 
-    <p>Ainda não é um Caballeros? <a routerLink="/register">registre-se!</a></p>
+    <p>Ainda não é um Caballeros? <a routerLink="/auth/register">registre-se!</a></p>
 
   </div>
 </form>

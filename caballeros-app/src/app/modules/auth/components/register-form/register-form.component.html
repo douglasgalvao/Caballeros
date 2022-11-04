@@ -1,0 +1,52 @@
+<div class="content">
+  <form [formGroup]="formRegister" (submit)="this.onSubmit()">
+    <div class="contentRegister">
+      <div class="lblin">
+        <label for="nome">Nome:</label>
+        <input [ngClass]="{
+          'invalid': c['nome'].invalid && (c['nome'].dirty || c['nome'].touched)
+        }" type="text" placeholder="Enter your name" formControlName="nome">
+        <div *ngIf="c['nome'].invalid && (c['nome'].dirty || c['nome'].touched)">
+          <span class="inputError" *ngIf="c['nome'].errors?.['required']">Este campo é obrigatório</span>
+        </div>
+      </div>
+      <div class="lblin">
+        <label for="telefone">Phone:</label>
+        <input [ngClass]="{
+          'invalid': c['numero'].invalid && (c['numero'].dirty || c['numero'].touched)
+        }" type="text" placeholder="Enter your phone number" formControlName="numero" [minLength]="11"
+          mask="(00) 00000-0000">
+        <div *ngIf="c['numero'].invalid && (c['numero'].dirty || c['numero'].touched)">
+          <span class="inputError" *ngIf="c['numero'].errors?.['required']">Este campo é obrigatório</span>
+        </div>
+      </div>
+
+      <div class="lblin">
+        <label for="email">Email:</label>
+        <input [ngClass]="{
+          'invalid': c['email'].invalid && (c['email'].dirty || c['email'].touched)
+        }" type="text" placeholder="Enter your email" formControlName="email">
+        <div *ngIf="c['email'].invalid && (c['email'].dirty || c['email'].touched)">
+          <span class="inputError" *ngIf="c['email'].errors?.['email']">Você deve preencher um email válido</span>
+          <span class="inputError" *ngIf="c['email'].errors?.['required']">Este campo é obrigatório</span>
+        </div>
+        <div *ngIf="emailInUse">
+          <span>Este email está em uso</span>
+        </div>
+      </div>
+
+      <div class="lblin">
+        <label for="password">Password:</label>
+        <input [ngClass]="{
+          'invalid': c['password'].invalid && (c['password'].dirty || c['password'].touched)
+        }" type="password" placeholder="Enter your password" formControlName="password">
+        <div *ngIf="c['password'].invalid && (c['password'].dirty || c['password'].touched)">
+          <span class="inputError" *ngIf="c['password'].errors?.['required']">Este campo é obrigatório</span>
+        </div>
+      </div>
+
+
+      <button type="submit" [disabled]="formRegister.invalid">Register</button>
+    </div>
+  </form>
+</div>
