@@ -4,43 +4,51 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import * as e from 'express';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
-
-  public formEmail!: FormGroup
+  public formEmail!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     private httpClient: HttpClient,
-    private cookieService: CookieService
-  ) { }
+    private cookieService: CookieService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
   }
 
   async onSubmitlogin() {
-    this.httpClient.post(environment.apiUrl.concat("/login"), this.formEmail.value)
+    this.httpClient
+      .post(environment.apiUrl.concat('/login'), this.formEmail.value)
       .subscribe((res: any) => {
-        this.cookieService.set("token", res.token);
-        this.httpClient.post(environment.apiUrl.concat("/cliente/getPermission"), { token: this.cookieService.get("token") })
+        this.cookieService.set('token', res.token);
+        this.httpClient
+          .post(environment.apiUrl.concat('/cliente/getPermission'), {
+            token: this.cookieService.get('token'),
+          })
           .subscribe((retorno: any) => {
             retorno.forEach((e: any) => {
-              console.log(e.name);
+              if (e.name == 'ADMIN') {
+                // this.router.navigate([""])
+                console.log('redireciona para a tela principal de adm');
+                return;
+              }
+              console.log('redireciona para a tela principal de usuário');
             });
-          })
+          });
       });
-
   }
-
 
   private initForm(): void {
     this.formEmail = this.formBuilder.group({
-      email: ["", [Validators.required]],
-      password: ["", [Validators.required]]
-    })
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+    });
   }
 }
