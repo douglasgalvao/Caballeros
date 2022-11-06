@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
   public formEmail!: FormGroup;
+  private err!: Boolean;
   constructor(
     private formBuilder: FormBuilder,
     private httpClient: HttpClient,
@@ -23,13 +24,17 @@ export class LoginFormComponent implements OnInit {
   }
 
   async onSubmitlogin() {
-    this.httpClient
-      .post(environment.apiUrl.concat('/login'), this.formEmail.value)
-      .subscribe((res: any) => {
-        this.cookieService.set('token', res.token);
-
-        this.router.navigate(["/cliente/sobre"]);
-      });
+    try {
+      this.httpClient
+        .post(environment.apiUrl.concat('/login'), this.formEmail.value)
+        .subscribe((res: any) => {
+          this.cookieService.set('token', res.token);
+          this.router.navigate(['/cliente/sobre']);
+        });
+    } catch (e: any) {
+      this.err = true;
+      throw e;
+    }
   }
 
   private initForm(): void {
