@@ -28,20 +28,8 @@ export class LoginFormComponent implements OnInit {
       .post(environment.apiUrl.concat('/login'), this.formEmail.value)
       .subscribe((res: any) => {
         this.cookieService.set('token', res.token);
-        this.httpClient
-          .post(environment.apiUrl.concat('/cliente/getPermission'), {
-            token: this.cookieService.get('token'),
-          })
-          .subscribe((retorno: any) => {
-            retorno.forEach((e: any) => {
-              if (e.name == 'ADMIN') {
-                // this.router.navigate([""])
-                console.log('redireciona para a tela principal de adm');
-                return;
-              }
-              console.log('redireciona para a tela principal de usuário');
-            });
-          });
+
+        this.router.navigate([""]);
       });
   }
 
