@@ -9,6 +9,7 @@ export class NavbarComponent implements OnInit {
 
   public optionsClicked: boolean = false;
   public isLoggedIn: boolean = false;
+  public loginout!: String;
   constructor(
 
   ) { }
@@ -16,7 +17,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logOut():void{
 
+  }
   setTrueClick(): void { this.optionsClicked = true; }
   setfalseClick(): void { this.optionsClicked = false; }
 

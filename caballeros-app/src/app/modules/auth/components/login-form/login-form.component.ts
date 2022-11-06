@@ -28,7 +28,7 @@ export class LoginFormComponent implements OnInit {
       .subscribe((res: any) => {
         this.cookieService.set('token', res.token);
 
-        this.router.navigate([""]);
+        this.router.navigate(["/cliente/sobre"]);
       });
   }
 

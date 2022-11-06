@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sobre',
@@ -8,13 +10,35 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./sobre.component.scss'],
 })
 export class SobreComponent implements OnInit {
-  constructor(private router: Router, private cookieService: CookieService) {}
+  private erroAccessRoute!: Boolean;
 
-  verifyIsLogged() {
-    if(!this.cookieService.get('token')){
+  constructor(
+    private router: Router,
+    private cookieService: CookieService,
+    private httpClient: HttpClient
+  ) {}
 
+  verifyIsLogged(): void {
+    if (!this.cookieService.get('token')) {
       this.router.navigate(['auth/login']);
+      return;
     }
+    this.httpClient
+      .post(environment.apiUrl.concat('/cliente/verifyIsClientExist'), {
+        token: this.cookieService.get('token'),
+      })
+      .subscribe((e) => {
+        if (!e) {
+          this.erroAccessRoute = true;
+          this.router.navigate(['auth/login']);
+          return;
+        }
+      });
+  }
+
+  logOut(): void {
+    this.cookieService.delete('token');
+    this.router.navigate(['auth/login']);
   }
 
   ngOnInit(): void {
