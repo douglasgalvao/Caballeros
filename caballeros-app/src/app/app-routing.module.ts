@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './modules/admin/admin.component';
 import { AuthComponent } from './modules/auth/auth.component';
 import { ClienteComponent } from './modules/cliente/cliente.component';
-
 const routes: Routes = [{
   path: '',
   redirectTo: '/auth/login',
