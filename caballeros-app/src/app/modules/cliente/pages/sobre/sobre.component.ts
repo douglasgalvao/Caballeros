@@ -23,6 +23,7 @@ export class SobreComponent implements OnInit {
       this.router.navigate(['auth/login']);
       return;
     }
+
     this.httpClient
       .post(environment.apiUrl.concat('/cliente/verifyIsClientExist'), {
         token: this.cookieService.get('token'),
