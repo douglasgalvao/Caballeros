@@ -25,7 +25,7 @@ export class LoginFormComponent implements OnInit {
 
   async onSubmitlogin() {
     try {
-      await this.httpClient
+      this.httpClient
         .post(environment.apiUrl.concat('/login'), this.formEmail.value)
         .subscribe((res: any) => {
           this.cookieService.set('token', res.token, 60 * 30 * 30);

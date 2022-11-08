@@ -21,17 +21,9 @@ export class RegisterFormComponent implements OnInit {
   onSubmit(): void {
     this.registred = true;
     try {
-
-      this.httpClient.get(environment.apiUrl.concat("/cliente/exist/" + this.formRegister.value.email)).subscribe(retorno => {
-
-        if (retorno) {
-          this.emailInUse = true;
-          return;
-        }
-        this.httpClient.post(environment.apiUrl.concat("/cliente/save"), this.formRegister.value).subscribe((retorno: any) => {
-          this.router.navigate(["/auth/login"]);
-        })
-      });
+      this.httpClient.post(environment.apiUrl.concat("/cliente/save"), this.formRegister.value).subscribe((retorno: any) => {
+        this.router.navigate(["/auth/login"]);
+      })
     } catch (e: any) {
       throw e.toString();
     }
