@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "http://localhost:8080/caballerosapi"
+  apiUrl: "https://caballeross.herokuapp.com/caballerosapi"
 };

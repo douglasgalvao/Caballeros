@@ -37,8 +37,6 @@ export class SobreComponent implements OnInit {
           this.router.navigate(['auth/login']);
           return;
         }
-      }, (error: any) => {
-        this.router.navigate(['auth/login']);
       });
   }
 
