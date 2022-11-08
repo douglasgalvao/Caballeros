@@ -17,7 +17,7 @@ export class LoginFormComponent implements OnInit {
     private httpClient: HttpClient,
     private cookieService: CookieService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -25,10 +25,10 @@ export class LoginFormComponent implements OnInit {
 
   async onSubmitlogin() {
     try {
-      this.httpClient
+      await this.httpClient
         .post(environment.apiUrl.concat('/login'), this.formEmail.value)
         .subscribe((res: any) => {
-          this.cookieService.set('token', res.token);
+          this.cookieService.set('token', res.token, 60 * 30 * 30);
           this.router.navigate(['/cliente/sobre']);
         });
     } catch (e: any) {

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -16,7 +16,7 @@ export class SobreComponent implements OnInit {
     private router: Router,
     private cookieService: CookieService,
     private httpClient: HttpClient
-  ) {}
+  ) { }
 
   verifyIsLogged(): void {
     if (!this.cookieService.get('token')) {
@@ -24,9 +24,12 @@ export class SobreComponent implements OnInit {
       return;
     }
 
-    this.httpClient
-      .post(environment.apiUrl.concat('/cliente/verifyIsClientExist'), {
-        token: this.cookieService.get('token'),
+
+    this.httpClient.post(environment.apiUrl.concat('/cliente/verifyifclientexist'), {}
+      , {
+        headers: {
+          'Authorization': this.cookieService.get('token')
+        }
       })
       .subscribe((e) => {
         if (!e) {
@@ -34,6 +37,8 @@ export class SobreComponent implements OnInit {
           this.router.navigate(['auth/login']);
           return;
         }
+      }, (error: any) => {
+        this.router.navigate(['auth/login']);
       });
   }
 
