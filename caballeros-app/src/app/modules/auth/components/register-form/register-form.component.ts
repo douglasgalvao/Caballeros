@@ -21,7 +21,7 @@ export class RegisterFormComponent implements OnInit {
   onSubmit(): void {
     this.registred = true;
     try {
-      this.httpClient.post(environment.apiUrl.concat("/cliente/save"), this.formRegister.value).subscribe((retorno: any) => {
+      this.httpClient.post(environment.apiUrl.concat("/cliente/saveClient"), this.formRegister.value).subscribe((retorno: any) => {
         this.router.navigate(["/auth/login"]);
       })
     } catch (e: any) {
