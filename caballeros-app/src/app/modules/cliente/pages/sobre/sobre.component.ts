@@ -18,6 +18,6 @@ export class SobreComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.authService.verifyIsLogged().subscribe((e: any) => { console.log(e) });
+    this.authService.verifyIsLogged().subscribe((e: any) => {},(error=>{this.router.navigate(["/auth/login"])}));
   }
 }
