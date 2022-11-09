@@ -8,7 +8,7 @@
       <label for="password">Password:</label>
       <input type="password" id="password" formControlName="password">
     </div>
-    <p *ngIf="err">Email or password incorrect!</p>
+    <p *ngIf="err" class="passwordIncorrect">Email or password incorrect!</p>
 
     <div class="btnEmail">
       <button type="submit" [disabled]="formEmail.invalid">Entrar</button>
