@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://caballeross.herokuapp.com/caballerosapi"
+  apiUrl: "http://localhost:8080/caballerosapi"
 };
 
 /*

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { timeInterval } from 'rxjs';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
