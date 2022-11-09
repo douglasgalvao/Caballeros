@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class LoginFormComponent implements OnInit {
   public formEmail!: FormGroup;
-  private err!: Boolean;
+  protected err!: Boolean;
   constructor(
     private formBuilder: FormBuilder,
     private httpClient: HttpClient,
@@ -24,17 +24,16 @@ export class LoginFormComponent implements OnInit {
   }
 
   async onSubmitlogin() {
-    try {
-      this.httpClient
-        .post(environment.apiUrl.concat('/login'), this.formEmail.value)
-        .subscribe((res: any) => {
-          this.cookieService.set('token', res.token, 60 * 30 * 30);
-          this.router.navigate(['/cliente/sobre']);
-        });
-    } catch (e: any) {
-      this.err = true;
-      throw e;
-    }
+
+    this.httpClient
+      .post(environment.apiUrl.concat('/login'), this.formEmail.value)
+      .subscribe((res: any) => {
+        this.cookieService.set('token', res.token, 60 * 30 * 30);
+        this.router.navigate(['/cliente/sobre']);
+      }, (error => {
+        this.err = true;
+      }));
+
   }
 
   private initForm(): void {
