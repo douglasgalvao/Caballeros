@@ -35,14 +35,25 @@
       background-color: #1b1919;
       padding: 25px 35px;
       border-radius: 8px;
-      .passwordIncorrect{
-        color:red;
+      .forgetPassword {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        p {
+          color: red;
+          &:hover {
+            color: rgba(255, 0, 0, 0.816);
+          }
+        }
       }
-      .email{
-        gap:0.5rem;
+      .passwordIncorrect {
+        color: red;
       }
-      .password{
-        gap:0.5rem;
+      .email {
+        gap: 0.5rem;
+      }
+      .password {
+        gap: 0.5rem;
         margin-top: 15px;
       }
 
@@ -76,7 +87,6 @@
           }
         }
       }
-
     }
   }
 }

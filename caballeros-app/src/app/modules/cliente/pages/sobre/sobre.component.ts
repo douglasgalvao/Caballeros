@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-
 import { AuthService } from 'src/app/modules/auth/auth.service';
+
 
 @Component({
   selector: 'app-sobre',
@@ -16,7 +16,6 @@ export class SobreComponent implements OnInit {
     private cookieService: CookieService,
     private router: Router
   ) { }
-
 
 
   ngOnInit(): void {

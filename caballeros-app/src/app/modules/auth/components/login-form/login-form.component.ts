@@ -24,7 +24,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   async onSubmitlogin() {
-
     this.httpClient
       .post(environment.apiUrl.concat('/login'), this.formEmail.value)
       .subscribe((res: any) => {

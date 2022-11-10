@@ -5,16 +5,18 @@
       <input type="text" id="email" formControlName="email">
     </div>
     <div class="password">
-      <label for="password">Password:</label>
+      <label for="password">Senha:</label>
       <input type="password" id="password" formControlName="password">
     </div>
-    <p *ngIf="err" class="passwordIncorrect">Email or password incorrect!</p>
+    <p *ngIf="err" class="passwordIncorrect">Email ou Senha incorretos!</p>
 
     <div class="btnEmail">
       <button type="submit" [disabled]="formEmail.invalid">Entrar</button>
     </div>
-
     <p>Ainda não é um Caballeros? <a routerLink="/auth/register">registre-se!</a></p>
+    <div class="forgetPassword">
+      <p>Esqueceu a senha?</p>
+    </div>
 
   </div>
 </form>
