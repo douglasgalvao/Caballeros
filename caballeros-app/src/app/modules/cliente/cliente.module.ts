@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ClienteRoutingModule } from './cliente-routing.module';
 import { ClienteComponent } from './cliente.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselComponent } from './component/carousel/carousel.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [ClienteComponent, SobreComponent, NavbarComponent, CarouselComponent],

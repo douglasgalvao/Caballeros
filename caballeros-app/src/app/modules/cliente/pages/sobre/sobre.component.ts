@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/modules/auth/auth.service';
 })
 export class SobreComponent implements OnInit {
 
+
   constructor(
     private authService: AuthService,
     private cookieService: CookieService,

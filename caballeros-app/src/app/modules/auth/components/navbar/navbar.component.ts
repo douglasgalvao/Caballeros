@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  setTrueClick(): void { this.optionsClicked = true; }
-  setfalseClick(): void { this.optionsClicked = false; }
+  setTrueFalse(): void {
+    this.optionsClicked = !this.optionsClicked; }
 
 }

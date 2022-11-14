@@ -1,22 +1,31 @@
-<nav>
+<nav class="navbar">
   <div class="logoPhoto">
     <img routerLink="/auth/login" src="../../../assets/logo3.png" alt="logoCaballeros">
   </div>
-  <div *ngIf="optionsClicked==false">
-    <button class="iconOptions" (click)="setTrueClick()">
+
+  <div class="menuIcon" *ngIf="!optionsClicked">
+    <button (click)="setTrueFalse()">
       <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+  <div class="menuIcon" *ngIf="optionsClicked">
+    <button (click)="setTrueFalse()">
+      <i class="fa-solid fa-x"></i>
     </button>
   </div>
 </nav>
 
-<div class="optionsOpen" *ngIf="optionsClicked==true">
+<nav [ngClass]="{'optionsOpen': optionsClicked==true, 'optionsClosed':optionsClicked==false}">
+  <ul>
+    <li (click)="setTrueFalse()">Login</li>
+    <li routerLink="/cliente/sobre">Sobre</li>
+    <li>
+      <img class="logoPhoto" routerLink="/auth/login" src="../../../assets/logo3.png" alt="logoCaballeros">
+    </li>
 
-  <button class="fecharOptions" (click)="setfalseClick()">
-    <i class="fa-solid fa-x"></i>
-  </button>
-  <ul class="options">
-    <a routerLink="/auth/login" (click)="setfalseClick()" >Login</a>
-    <img routerLink="/auth/login" src="../../../assets/logo3.png" alt="logoCaballeros" (click)="setfalseClick()">
   </ul>
+</nav>
 
-</div>
+<!-- <button class="iconOptions" (click)="setTrueClick()">
+
+</button> -->

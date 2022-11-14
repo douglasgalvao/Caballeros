@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from 'src/app/modules/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,20 +10,20 @@ export class NavbarComponent implements OnInit {
 
   public optionsClicked: boolean = false;
   public isLoggedIn: boolean = false;
-  public loginout!: String;
   constructor(
-    private cookieService:CookieService,
-    private router: Router
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
   }
 
-  logOut():void{
-    this.cookieService.delete("token");
-    this.router.navigate(["auth/login"]);
+
+  setTrueFalse(): void {
+    this.optionsClicked = !this.optionsClicked;
   }
-  setTrueClick(): void { this.optionsClicked = true; }
-  setfalseClick(): void { this.optionsClicked = false; }
+
+  logOut(): void {
+    this.authService.logOut();
+  }
 
 }
