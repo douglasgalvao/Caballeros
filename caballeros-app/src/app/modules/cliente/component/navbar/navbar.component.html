@@ -18,6 +18,8 @@
 <nav [ngClass]="{'optionsOpen': optionsClicked==true, 'optionsClosed':optionsClicked==false}">
   <ul>
     <li (click)="logOut()">Logout</li>
+    <li routerLink="/cliente/noivo" (click)="setTrueFalse()">Noivo's day</li>
+    <li routerLink="/cliente/contato" (click)="setTrueFalse()">Contato</li>
     <li routerLink="/cliente/sobre" (click)="setTrueFalse()">Sobre</li>
     <li>
       <img class="logoPhoto" routerLink="/auth/login" src="../../../assets/logo3.png" alt="logoCaballeros">

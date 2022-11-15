@@ -9,8 +9,8 @@ import { AuthService } from 'src/app/modules/auth/auth.service';
   templateUrl: './sobre.component.html',
   styleUrls: ['./sobre.component.scss'],
 })
-export class SobreComponent implements OnInit {
 
+export class SobreComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
@@ -25,4 +25,5 @@ export class SobreComponent implements OnInit {
       this.router.navigate(["/auth/login"]);
     }));
   }
+
 }

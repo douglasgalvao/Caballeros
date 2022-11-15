@@ -1,0 +1,27 @@
+.container {
+.slides{
+  display: none;
+}
+
+  .fts {
+    display: flex;
+    width: 250px;
+    height: 170px;
+    overflow: hidden;
+    img {
+      width: 250px;
+      height: 170px;
+    }
+  }
+  .navigation {
+    display: flex;
+    justify-content: center;
+    label{
+      width: 40px;
+      height: 10px;
+      border: 0.1em solid white;
+      transform: translateY(-40px);
+
+    }
+  }
+}

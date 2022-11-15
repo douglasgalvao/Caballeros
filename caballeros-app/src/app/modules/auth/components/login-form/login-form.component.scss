@@ -90,3 +90,95 @@
     }
   }
 }
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../../../../../assets/img3.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  .password,
+  .email {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    font-size: large;
+    color: #fff;
+    font-weight: 700;
+  }
+  input {
+    padding: 5px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: large;
+    background-color: #ffffff6d;
+    border: 0.1em solid transparent;
+    &:hover {
+      border-color: #a5632adb;
+      background-color: #202024;
+      transition: 0.3s ease-in;
+    }
+  }
+  .contentEmail {
+    background-color: #1b1919;
+    padding: 25px 35px;
+    border-radius: 8px;
+    .forgetPassword {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      p {
+        color: red;
+        &:hover {
+          color: rgba(255, 0, 0, 0.816);
+        }
+      }
+    }
+    .passwordIncorrect {
+      color: red;
+    }
+    .email {
+      gap: 0.5rem;
+    }
+    .password {
+      gap: 0.5rem;
+      margin-top: 15px;
+    }
+
+    .btnEmail {
+      display: flex;
+      justify-content: center;
+      button {
+        padding: 6px 35px;
+        margin: 28px 0px;
+        border-radius: 4px;
+        width: 100%;
+        color: #fff;
+        background-color: #a5632adb;
+        border: 0.1em solid transparent;
+        &:hover {
+          background-color: #202024;
+          border-color: #a5632adb;
+          transition: 0.3s ease-in;
+          color: #fff;
+        }
+      }
+    }
+    p {
+      font-size: medium;
+      color: #fff;
+      a {
+        color: #ff7700;
+        text-decoration: underline;
+        &:hover {
+          color: #a5632adb;
+        }
+      }
+    }
+  }
+}
