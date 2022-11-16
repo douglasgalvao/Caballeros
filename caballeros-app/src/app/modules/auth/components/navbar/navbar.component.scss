@@ -1,6 +1,11 @@
-@media (max-width: 200px) {
+$media-desktop: "only screen and (max-width : 1024px)";
+$media-tablet: "only screen and (max-width : 768px)";
+$media-mobile: "only screen and (max-width : 600px)";
+$media-mobile-sm: "only screen and (max-width : 480px)";
+
+@media #{$media-desktop} {
   .navbar {
-    display: hidden;
+    display: flex;
     justify-content: space-between;
     .logoPhoto {
       text-align: center;
@@ -50,10 +55,10 @@
       list-style: none;
       gap: 20px;
       li {
-        width: 100%;
-        text-align: center;
         box-shadow: 4px 4px 4px 3px rgba(0, 0, 0, 0.2);
         font-size: x-large;
+        width: 100%;
+        text-align: center;
         color: #fff;
         border: 0.1em solid white;
         border-radius: 4px;
@@ -79,10 +84,10 @@
     width: 100%;
     height: 100%;
     padding: 8px;
-    margin-left: 101%;
+    margin-left: -101%;
     z-index: 1;
     position: fixed;
-    opacity: 0;
+    opacity: 0.95;
     background-color: rgb(68, 67, 67);
     display: flex;
     justify-content: center;
@@ -120,7 +125,11 @@
     }
   }
 }
-@media (max-width: 500px) {
+
+@media #{$media-tablet} {
+}
+
+@media #{$media-mobile} {
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -243,6 +252,9 @@
   }
 }
 
+@media #{$media-mobile-sm} {
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -363,3 +375,4 @@
     }
   }
 }
+
