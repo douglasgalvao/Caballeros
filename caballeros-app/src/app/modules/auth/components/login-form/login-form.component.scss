@@ -67,7 +67,7 @@
           border-radius: 4px;
           width: 100%;
           color: #fff;
-          background-color: #a5632adb;
+          background: linear-gradient(48deg, rgba(2,0,36,1) 0%, rgba(11,11,130,1) 30%, rgba(0,212,255,1) 69%, rgba(27,217,255,1) 77%);
           border: 0.1em solid transparent;
           &:hover {
             background-color: #202024;
@@ -161,7 +161,8 @@ form {
         border-radius: 4px;
         width: 100%;
         color: #fff;
-        background-color: #a5632adb;
+        background: linear-gradient(48deg, rgba(2,0,36,1) 0%, rgba(11,11,130,1) 30%, rgba(0,212,255,1) 69%, rgba(27,217,255,1) 77%);
+
         border: 0.1em solid transparent;
         &:hover {
           background-color: #202024;
